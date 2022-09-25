@@ -1,3 +1,7 @@
+[Link to S3 Bucket](http://ang-product-shop-spa-bucket.s3-website-us-east-1.amazonaws.com/)
+
+[Hosted app](https://d36tbi4lv1svsd.cloudfront.net/)
+
 # Shop Angular Cloudfront
 
 Angular version: ~12.
