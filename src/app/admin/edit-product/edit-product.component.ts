@@ -18,6 +18,7 @@ import { finalize, takeUntil } from 'rxjs/operators';
 import { Product } from '../../products/product.interface';
 import { ProductsService } from '../../products/products.service';
 import { NotificationService } from '../../core/notification.service';
+import { v4 } from 'uuid';
 
 @Component({
   selector: 'app-edit-product',
@@ -93,6 +94,12 @@ export class EditProductComponent implements OnInit, OnDestroy {
     const product: Product = this.form.value;
     if (!product) {
       return;
+    }
+
+    if (!this.productId) {
+      product.id = v4();
+    } else {
+      product.id = this.productId;
     }
 
     const editProduct$ = this.productId
