@@ -38,6 +38,20 @@ export class ManageProductsService extends ApiService {
       params: {
         name: fileName,
       },
+      headers: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        Authorization: `Bearer ${this.getAuthToken()}`,
+      },
     });
+  }
+
+  private getAuthToken(): string {
+    try {
+      const authorizationToken = localStorage.getItem('authorization_token');
+      return authorizationToken || '';
+    } catch (e) {
+      console.log(JSON.stringify(e));
+    }
+    return '';
   }
 }
